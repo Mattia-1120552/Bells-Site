@@ -2,6 +2,6 @@
 
 ## Uses
 
-Vite
-Vue(PrimeVue)
-Unplugin
+ - Vite
+ - Vue(PrimeVue)
+ - Unplugin
