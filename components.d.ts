@@ -8,11 +8,30 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Avatar: typeof import('primevue/avatar')['default']
+    Badge: typeof import('primevue/badge')['default']
     Button: typeof import('primevue/button')['default']
+    Card: typeof import('primevue/card')['default']
     Drawer: typeof import('primevue/drawer')['default']
+    GridItemsSideBar: typeof import('./src/components/SideBar/GridItemsSideBar.vue')['default']
+    Image: typeof import('primevue/image')['default']
     MainHeader: typeof import('./src/components/MainHeader.vue')['default']
-    MenuNavigation: typeof import('./src/components/MenuNavigation.vue')['default']
+    MenuNavigation: typeof import('./src/components/SideBar/MenuNavigation.vue')['default']
+    MenuNavigationSideBar: typeof import('./src/components/SideBar/MenuNavigationSideBar.vue')['default']
+    RootSideBar: typeof import('./src/components/SideBar/RootSideBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Select: typeof import('primevue/select')['default']
+    SettingsSideBar: typeof import('./src/components/SideBar/SettingsSideBar.vue')['default']
+    Tab: typeof import('primevue/tab')['default']
+    TabList: typeof import('primevue/tablist')['default']
+    TabPanel: typeof import('primevue/tabpanel')['default']
+    TabPanels: typeof import('primevue/tabpanels')['default']
+    Tabs: typeof import('primevue/tabs')['default']
+    WelcomeHeader: typeof import('./src/components/WelcomeHeader.vue')['default']
+  }
+  export interface GlobalDirectives {
+    Ripple: typeof import('primevue/ripple')['default']
+    StyleClass: typeof import('primevue/styleclass')['default']
   }
 }
