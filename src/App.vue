@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
 import { RouterView } from 'vue-router'
 import { ref } from 'vue'
 import WelcomeHeader from './components/WelcomeHeader.vue'
 import RootSideBar from './components/SideBar/RootSideBar.vue'
-import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const visible = ref(false)
@@ -46,7 +46,11 @@ const visible = ref(false)
     </div>
 
     <Drawer v-model:visible="visible" header="‎ ‎ ‎ ‎ ‎ SideBar (つ﹏ <。)">
+      <template #header> </template>
       <RootSideBar />
+      <template #footer>
+        <SettingsSideBar />
+      </template>
     </Drawer>
   </div>
 </template>

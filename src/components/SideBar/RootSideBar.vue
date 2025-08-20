@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import GridItemsSideBar from './GridItemsSideBar.vue'
 import MenuNavigationSideBar from './MenuNavigationSideBar.vue'
-import SettingsSideBar from './SettingsSideBar.vue'
 </script>
 
 <template>
@@ -21,13 +20,5 @@ import SettingsSideBar from './SettingsSideBar.vue'
         </TabPanel>
       </TabPanels>
     </Tabs>
-    <hr />
-    <SettingsSideBar />
   </div>
 </template>
-
-<style scoped>
-hr {
-  color: pink;
-}
-</style>
