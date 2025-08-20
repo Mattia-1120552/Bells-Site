@@ -18,7 +18,7 @@ const visible = ref(false)
       </header>
       <div
         class="w-full h-20 bg-cover bg-center z-[-1]"
-        style="background-image: url('/banner1.jpg')"
+        style="background-image: url('/banner2.jpg')"
       ></div>
     </header>
 
