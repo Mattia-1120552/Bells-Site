@@ -30,9 +30,8 @@
 }
 
 .item {
-  /* border: 1px solid red; */
+  border: 1px solid rgba(0, 0, 0, 0.041);
   border-radius: 3px;
-  background-color: rgb(82, 78, 78);
   padding: 1em;
 }
 </style>

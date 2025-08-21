@@ -22,7 +22,7 @@ const visible = ref(false)
       </div>
     </div>
 
-    <div class="navigationButton">
+    <div class="navigationButton fixed bottom-0 right-0 p-[1.5rem]">
       <Button icon="pi pi-compass" @click="visible = true" />
     </div>
 
@@ -36,11 +36,4 @@ const visible = ref(false)
   </div>
 </template>
 
-<style scoped>
-.navigationButton {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 1.5rem;
-}
-</style>
+<style scoped></style>
