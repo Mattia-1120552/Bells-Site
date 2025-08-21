@@ -28,6 +28,7 @@ declare module 'vue' {
     TabPanel: typeof import('primevue/tabpanel')['default']
     TabPanels: typeof import('primevue/tabpanels')['default']
     Tabs: typeof import('primevue/tabs')['default']
+    WavesHeader: typeof import('./src/components/WavesHeader.vue')['default']
     WelcomeHeader: typeof import('./src/components/WelcomeHeader.vue')['default']
   }
   export interface GlobalDirectives {
