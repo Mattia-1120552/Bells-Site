@@ -6,6 +6,8 @@
       :numScroll="1"
       orientation="horizontal"
       verticalViewPortHeight="27vw"
+      circular
+      :autoplayInterval="3000"
     >
       <template #item="slotProps">
         <div class="border rounded-xl m-2 p-4 h-[100%] flex justify-between flex-col">

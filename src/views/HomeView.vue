@@ -11,7 +11,7 @@ import CarouselHomeView from './CarouselHomeView.vue'
       <CardHomeView />
     </div>
     <div class="frog2 lg:w-[10%] h-[2em] lg:h-[25px]"></div>
-    <div class="frog sm:w-[60%] lg:w-[40%]">
+    <div class="frog w-[90%] sm:w-[60%] lg:w-[40%]">
       <CarouselHomeView />
     </div>
   </div>
