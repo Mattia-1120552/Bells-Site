@@ -39,4 +39,18 @@ export const MyPreset = definePreset(Aura, {
       },
     },
   },
+  css: ({ dt }) => `
+  .theme-color {
+    color: ${dt('primary.400')};
+    fill: ${dt('primary.400')};
+  }
+  a {
+    color: ${dt('primary.500')};
+  }
+  .outerlayerBottomRight {
+  background: linear-gradient(-45deg, ${dt('primary.500')} 1%, transparent 7%);
+  }
+  waves {
+    color: ${dt('primary.500')};
+  }`,
 })

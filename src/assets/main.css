@@ -13,7 +13,6 @@
 
 a {
   text-decoration: none;
-  color: pink;
   transition: 0.4s;
   padding: 3px;
 }
@@ -24,13 +23,13 @@ a {
   }
 }
 
-.theme-color {
-  color: pink;
-}
-
 .p-drawer {
   background-image: url('/banner.jpg');
-  background-size: cover; /* fills the container */
-  background-position: center; /* centers the image */
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
+}
+
+.icon {
+  color: green; /* The SVG path will now be green */
 }

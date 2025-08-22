@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import WelcomeHeader from './components/WelcomeHeader.vue'
 import RootSideBar from './components/SideBar/RootSideBar.vue'
 import WavesHeader from './components/WavesHeader.vue'
+import ColorWatcher from './components/SideBar/ColorWatcher.vue'
 
 const visible = ref(false)
 </script>
@@ -34,6 +35,7 @@ const visible = ref(false)
       </template>
     </Drawer>
   </div>
+  <ColorWatcher />
 </template>
 
 <style scoped></style>

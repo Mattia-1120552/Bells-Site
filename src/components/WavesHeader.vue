@@ -2,14 +2,7 @@
   <div class="theme-color View justify-center bg-black">
     <!--Waves Container-->
     <div>
-      <svg
-        class="waves"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 24 150 28"
-        preserveAspectRatio="none"
-        shape-rendering="auto"
-      >
+      <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
         <defs>
           <path
             id="gentle-wave"
@@ -17,11 +10,10 @@
           />
         </defs>
         <g class="parallax">
-          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255, 105, 180, 0.7)" />
-          <!-- Hot pink -->
-          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255, 182, 193, 0.5)" />
-          <!-- Light pink -->
-          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255, 192, 203, 0.3)" />
+          <use xlink:href="#gentle-wave" x="48" y="0" class="fill-current opacity-70" />
+          <use xlink:href="#gentle-wave" x="48" y="3" class="opacity-50" />
+          <use xlink:href="#gentle-wave" x="48" y="5" class="fill-current opacity-30" />
+          <use xlink:href="#gentle-wave" x="48" y="5" class="fill-current opacity-10" />
         </g>
       </svg>
     </div>

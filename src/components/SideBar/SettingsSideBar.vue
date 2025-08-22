@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { updatePrimaryPalette } from '@primeuix/themes'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
-const selectedColor = ref('Green') // This can be dynamically changed
+const selectedColor = ref(localStorage.getItem('selectedColor') || null)
 
 function switchColor() {
   const color = selectedColor.value
-  // console.log('Palette updated:', color)
+  if (!color) return
+  console.log('Palette updated:', color)
   updatePrimaryPalette({
     50: `{${color}.50}`,
     100: `{${color}.100}`,
@@ -21,22 +22,33 @@ function switchColor() {
     950: `{${color}.950}`,
   })
 }
+
+const colors = [
+  { label: 'Pink', value: 'Pink' },
+  { label: 'Green', value: 'Green' },
+  { label: 'Blue', value: 'Blue' },
+  { label: 'Red', value: 'Red' },
+  { label: 'Purple', value: 'Purple' },
+]
+
+watch(selectedColor, (newValue) => {
+  if (!newValue) return
+  localStorage.setItem('selectedColor', newValue)
+  switchColor()
+})
 </script>
+
 <template>
   <div class="flex items-center flex-col">
-    <h1>Settings</h1>
-    <div>Background Changer</div>
-    <div>Theme Color</div>
-    <Button @click="switchColor">Swap color</Button>
-
-    <!-- Example: change color dynamically -->
-    <select v-model="selectedColor">
-      <option value="Green">Green</option>
-      <option value="Blue">Blue</option>
-      <option value="Red">Red</option>
-      <option value="Purple">Purple</option>
-    </select>
-
+    <h2>Settings</h2>
+    <Select
+      v-model="selectedColor"
+      :options="colors"
+      option-value="value"
+      optionLabel="label"
+      placeholder="Select a color"
+    />
+    <br />
     <div class="theme-color">( ◥◣_◢◤ )</div>
   </div>
 </template>
