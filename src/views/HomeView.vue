@@ -1,37 +1,23 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import CardHomeView from './CardHomeView.vue'
+import CarouselHomeView from './CarouselHomeView.vue'
+</script>
 
 <template>
-  <div class="parent">
-    <div class="item div1">1</div>
-    <div class="item div2">2</div>
-    <div class="item div3">3</div>
+  <div class="flex" style="overflow: hidden">
+    <div class="frog w-[55%]">
+      <CardHomeView />
+    </div>
+    <div class="frog w-[5%]">frogs</div>
+    <div class="frog w-[40%]">
+      <CarouselHomeView />
+    </div>
   </div>
 </template>
 
 <style scoped>
-.parent {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 8px;
-}
-
-.div1 {
-  grid-column: span 2 / span 2;
-  grid-row: span 5 / span 5;
-}
-
-.div2 {
-  grid-column-start: 3;
-}
-
-.div3 {
-  grid-column-start: 4;
-}
-
-.item {
-  border: 1px solid rgba(0, 0, 0, 0.041);
-  border-radius: 3px;
-  padding: 1em;
+.frog {
+  /* border: 1px solid black; */
+  margin: 0 1em 0 1em;
 }
 </style>

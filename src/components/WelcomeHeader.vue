@@ -6,7 +6,7 @@ const route = useRoute()
 
 <template>
   <header
-    class="theme-color opacity-50 absolute top-0 left-0 w-[100vw] flex justify-center items-center h-[75px] hover:opacity-100 transition duration-1000 z-20 bg-black"
+    class="view theme-color opacity-50 absolute top-0 left-0 w-[100vw] flex justify-center items-center h-[75px] hover:opacity-100 transition duration-1000 z-20 bg-black"
     style="
       /* background-image: url('/banner.jpg'); */
       background-position: center;
