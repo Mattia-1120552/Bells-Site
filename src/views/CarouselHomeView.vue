@@ -4,7 +4,7 @@
       :value="products"
       :numVisible="1"
       :numScroll="1"
-      orientation="vertical"
+      orientation="horizontal"
       verticalViewPortHeight="27vw"
     >
       <template #item="slotProps">
@@ -34,13 +34,23 @@ import { ref } from 'vue'
 const products = ref([
   {
     id: '1000',
-    name: 'City Scape',
-    image: '/banner2.jpg',
+    name: 'Kitty art',
+    image: '/drawings/cat1.png',
   },
   {
     id: '1001',
-    name: 'Gaming Keyboard',
-    image: '/banner3.jpg',
+    name: 'Kitty art',
+    image: '/drawings/cat2.png',
+  },
+  {
+    id: '1002',
+    name: 'Boy art',
+    image: '/drawings/cat3.png',
+  },
+  {
+    id: '1003',
+    name: 'Boy art',
+    image: '/drawings/cat4.png',
   },
 ])
 </script>

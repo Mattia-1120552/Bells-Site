@@ -52,5 +52,9 @@ export const MyPreset = definePreset(Aura, {
   }
   waves {
     color: ${dt('primary.500')};
-  }`,
+  }
+  .footer {
+    background-color: ${dt('primary.500')};
+  },
+  `,
 })

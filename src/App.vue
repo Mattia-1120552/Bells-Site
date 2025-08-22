@@ -17,7 +17,7 @@ const visible = ref(false)
 
     <WavesHeader />
 
-    <div class="p-10 sm:px-[5rem] lg:px-[10rem] w-[100vw] h-[66vh]">
+    <div class="p-10 sm:px-[5rem] lg:px-[10rem] w-[100vw] sm:h-[76vh] h-[66vh]">
       <div class="h-[100%] rounded-xs">
         <RouterView />
       </div>
