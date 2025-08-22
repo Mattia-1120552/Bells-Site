@@ -83,3 +83,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+h2 {
+  padding-block: calc(var(--spacing) * 3);
+  font-size: var(--text-xl);
+}
