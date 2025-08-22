@@ -1,6 +1,5 @@
 <template>
-  <div class="theme-color View justify-center bg-black">
-    <!--Waves Container-->
+  <div class="theme-color view justify-center bg-black">
     <div>
       <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
         <defs>
@@ -17,6 +16,5 @@
         </g>
       </svg>
     </div>
-    <!--Waves end-->
   </div>
 </template>
