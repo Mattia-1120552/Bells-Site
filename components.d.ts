@@ -9,8 +9,10 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('primevue/button')['default']
+    CardHomeView: typeof import('./src/components/HomeView/CardHomeView.vue')['default']
     Carousel: typeof import('primevue/carousel')['default']
-    ColorWatcher: typeof import('./src/components/SideBar/ColorWatcher.vue')['default']
+    CarouselHomeView: typeof import('./src/components/HomeView/CarouselHomeView.vue')['default']
+    ColorWatcher: typeof import('./src/components/Global/ColorWatcher.vue')['default']
     Drawer: typeof import('primevue/drawer')['default']
     GridItemsSideBar: typeof import('./src/components/SideBar/GridItemsSideBar.vue')['default']
     MenuNavigationSideBar: typeof import('./src/components/SideBar/MenuNavigationSideBar.vue')['default']
@@ -19,9 +21,9 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     Select: typeof import('primevue/select')['default']
     SettingsSideBar: typeof import('./src/components/SideBar/SettingsSideBar.vue')['default']
-    SVGWavesHeader: typeof import('./src/components/SVGWavesHeader.vue')['default']
+    SVGWavesHeader: typeof import('./src/components/Header/SVGWavesHeader.vue')['default']
     Tag: typeof import('primevue/tag')['default']
-    WavesHeader: typeof import('./src/components/WavesHeader.vue')['default']
-    WelcomeHeader: typeof import('./src/components/WelcomeHeader.vue')['default']
+    WavesHeader: typeof import('./src/components/Header/WavesHeader.vue')['default']
+    WelcomeHeader: typeof import('./src/components/Header/WelcomeHeader.vue')['default']
   }
 }

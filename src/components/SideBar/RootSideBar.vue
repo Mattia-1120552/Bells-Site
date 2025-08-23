@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MenuNavigationSideBar from './MenuNavigationSideBar.vue'
+import MenuNavigationSideBar from '@/components/SideBar/MenuNavigationSideBar.vue'
 </script>
 
 <template>

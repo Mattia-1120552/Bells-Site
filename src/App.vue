@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import { ref } from 'vue'
-import WelcomeHeader from './components/WelcomeHeader.vue'
-import RootSideBar from './components/SideBar/RootSideBar.vue'
-import WavesHeader from './components/WavesHeader.vue'
-import ColorWatcher from './components/SideBar/ColorWatcher.vue'
+import WelcomeHeader from '@/components/Header/WelcomeHeader.vue'
+import RootSideBar from '@/components/SideBar/RootSideBar.vue'
+import WavesHeader from '@/components/Header/WavesHeader.vue'
+import ColorWatcher from '@/components/Global/ColorWatcher.vue'
 
 const visible = ref(false)
 </script>

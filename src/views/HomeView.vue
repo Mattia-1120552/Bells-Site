@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import CardHomeView from './CardHomeView.vue'
-import CarouselHomeView from './CarouselHomeView.vue'
+import CardHomeView from '@/components/HomeView/CardHomeView.vue'
+import CarouselHomeView from '@/components/HomeView/CarouselHomeView.vue'
 </script>
 
 <template>
