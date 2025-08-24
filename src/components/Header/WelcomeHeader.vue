@@ -5,11 +5,14 @@ const route = useRoute()
 </script>
 
 <template>
-  <header
-    class="view theme-color opacity-50 absolute top-0 left-0 w-[100vw] flex justify-center items-center h-[75px] hover:opacity-100 transition duration-1000 z-20 bg-black"
-    style="background-position: center; background-size: cover"
-  >
-    <div class="text-[18px] sm:text-[25px]">{{ route.meta.title }}</div>
-  </header>
+  <Transition name="slide-down" appear>
+    <header
+      :key="route.meta.title as string"
+      class="view theme-color opacity-50 absolute top-0 left-0 w-[100vw] flex justify-center items-center h-[75px] hover:opacity-100 transition duration-1000 z-20 bg-black"
+      style="background-position: center; background-size: cover"
+    >
+      <div class="text-[18px] sm:text-[25px]">{{ route.meta.title }}</div>
+    </header>
+  </Transition>
   <div class="w-full h-20 bg-cover bg-center z-[-1]"></div>
 </template>

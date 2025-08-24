@@ -2,6 +2,7 @@
 @import 'tailwindcss';
 @import 'primeicons/primeicons.css';
 @import './backgrounds.css';
+@import './transitions.css';
 
 #app {
   margin: 0;
