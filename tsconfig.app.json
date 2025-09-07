@@ -8,5 +8,9 @@
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  },
+    "rewrites": [{ 
+      "source": "/(.*)",
+      "destination": "/" }]
+  
 }
