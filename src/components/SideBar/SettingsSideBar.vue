@@ -24,7 +24,7 @@ function switchColor() {
 }
 
 const colors = [
-  { label: 'Grey', value: 'Grey', backgroundTheme: '/background-theme/background-grey.jpg' },
+  { label: 'Gray', value: 'Gray' },
   { label: 'Pink', value: 'Pink' },
   { label: 'Green', value: 'Green' },
   { label: 'Blue', value: 'Blue' },
