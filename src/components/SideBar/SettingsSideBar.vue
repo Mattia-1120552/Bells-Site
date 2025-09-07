@@ -6,8 +6,8 @@ const selectedColor = ref(localStorage.getItem('selectedColor') || null)
 
 function switchColor() {
   const color = selectedColor.value
-  if (!color) return
-  console.log('Palette updated:', color)
+
+  document.body.style.backgroundImage = `url(/background-theme/background-${color}.jpg)`
   updatePrimaryPalette({
     50: `{${color}.50}`,
     100: `{${color}.100}`,
@@ -24,6 +24,7 @@ function switchColor() {
 }
 
 const colors = [
+  { label: 'Grey', value: 'Grey', backgroundTheme: '/background-theme/background-grey.jpg' },
   { label: 'Pink', value: 'Pink' },
   { label: 'Green', value: 'Green' },
   { label: 'Blue', value: 'Blue' },

@@ -12,6 +12,8 @@ onMounted(() => {
 function switchColor() {
   const color = selectedColor.value
   if (!color) return
+  document.body.style.backgroundImage = `url(/background-theme/background-${color}.jpg)`
+
   console.log('Palette updated:', color)
   updatePrimaryPalette({
     50: `{${color}.50}`,

@@ -31,7 +31,7 @@ const visible = ref(false)
     </div>
 
     <!-- Floating Navigation Button -->
-    <div class="navigationButton fixed bottom-0 right-0 p-[1.5rem]">
+    <div class="fixed bottom-0 right-0 p-[1.4rem]">
       <Button icon="pi pi-compass" @click="visible = true" />
     </div>
 
