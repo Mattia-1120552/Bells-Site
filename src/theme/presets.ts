@@ -49,6 +49,7 @@ export const MyPreset = definePreset(Aura, {
   }
   .outerlayerBottomRight {
   background: linear-gradient(-45deg, ${dt('primary.500')} 1%, transparent 7%);
+  background-color: rgb(from ${dt('primary.500')} r g b / 0.4);
   }
   waves {
     color: ${dt('primary.500')};
