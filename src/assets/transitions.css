@@ -37,3 +37,7 @@
   opacity: 0;
   transform: translateY(-100px);
 }
+
+body {
+  transition: background-image 0.2s ease-in-out;
+}
