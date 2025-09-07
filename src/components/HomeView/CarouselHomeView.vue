@@ -44,15 +44,15 @@ const products = ref([
     name: 'Kitty art',
     image: '/drawings/cat2.png',
   },
-  {
-    id: '1002',
-    name: 'Boy art',
-    image: '/drawings/cat3.png',
-  },
-  {
-    id: '1003',
-    name: 'Boy art',
-    image: '/drawings/cat4.png',
-  },
+  // {
+  //   id: '1002',
+  //   name: 'Boy art',
+  //   image: '/drawings/cat3.png',
+  // },
+  // {
+  //   id: '1003',
+  //   name: 'Boy art',
+  //   image: '/drawings/cat4.png',
+  // },
 ])
 </script>
