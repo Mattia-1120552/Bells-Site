@@ -30,6 +30,3 @@ function switchColor() {
   })
 }
 </script>
-<template>
-  <div></div>
-</template>
