@@ -1,6 +1,11 @@
 <template>
   <div class="card">
+    <div v-if="loading" class="flex justify-center items-center h-64 flex-col-reverse gap-10">
+      ~Loading froggits~
+      <ProgressSpinner />
+    </div>
     <Carousel
+      v-else
       :value="products"
       :numVisible="1"
       :numScroll="1"
@@ -31,28 +36,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import { getMessage } from '@/scripts/api/fetch'
 
-const products = ref([
-  {
-    id: '1000',
-    name: 'Kitty art',
-    image: '/drawings/cat1.png',
-  },
-  {
-    id: '1001',
-    name: 'Kitty art',
-    image: '/drawings/cat2.png',
-  },
-  // {
-  //   id: '1002',
-  //   name: 'Boy art',
-  //   image: '/drawings/cat3.png',
-  // },
-  // {
-  //   id: '1003',
-  //   name: 'Boy art',
-  //   image: '/drawings/cat4.png',
-  // },
-])
+const products = ref([])
+const loading = ref(true)
+
+onMounted(async () => {
+  try {
+    const data = await getMessage()
+    products.value = data
+  } catch (err) {
+    console.error(err)
+  } finally {
+    loading.value = false
+  }
+})
 </script>

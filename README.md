@@ -20,3 +20,10 @@ Aura
 ## Planning
 
 Navigation
+
+## Backend uses
+
+Fastapi
+Python
+Supabase
+Renders

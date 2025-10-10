@@ -38,6 +38,18 @@ export const MyPreset = definePreset(Aura, {
         color: '#fffff',
       },
     },
+    progressspinner: {
+      colorScheme: {
+        dark: {
+          root: {
+            colorOne: '{primary.400}',
+            colorTwo: '{primary.500}',
+            colorThree: '{primary.600}',
+            colorFour: '{primary.700}',
+          },
+        },
+      },
+    },
   },
   css: ({ dt }) => `
   .theme-color {
@@ -56,6 +68,9 @@ export const MyPreset = definePreset(Aura, {
   }
   .footer {
     background-color: ${dt('primary.500')};
-  },
+  }
+  .animate-spin {
+    border-color: ${dt('primary.600')};
+  }
   `,
 })

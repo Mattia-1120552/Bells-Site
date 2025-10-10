@@ -16,6 +16,7 @@ declare module 'vue' {
     Drawer: typeof import('primevue/drawer')['default']
     GridItemsSideBar: typeof import('./src/components/SideBar/GridItemsSideBar.vue')['default']
     MenuNavigationSideBar: typeof import('./src/components/SideBar/MenuNavigationSideBar.vue')['default']
+    ProgressSpinner: typeof import('primevue/progressspinner')['default']
     RootSideBar: typeof import('./src/components/SideBar/RootSideBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
