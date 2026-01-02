@@ -5,7 +5,6 @@
       <ProgressSpinner />
     </div>
     <Carousel
-      v-else
       :value="products"
       :numVisible="1"
       :numScroll="1"
@@ -39,17 +38,54 @@
 import { onMounted, ref } from 'vue'
 import { getMessage } from '@/scripts/api/fetch'
 
-const products = ref([])
+interface Product {
+  id: string
+  name: string
+  image: string
+}
+
+const products = ref<Product[]>([])
 const loading = ref(true)
+const apiFailed = ref(false)
 
 onMounted(async () => {
   try {
-    const data = await getMessage()
+    const data: Product[] = await getMessage()
+
+    if (!data.length) {
+      throw new Error('Empty response')
+    }
+
     products.value = data
-  } catch (err) {
-    console.error(err)
+  } catch (error) {
+    console.error(error)
+    apiFailed.value = true
+    products.value = fallbackProducts
   } finally {
     loading.value = false
   }
 })
+
+const fallbackProducts = [
+  {
+    id: 'fallback-1',
+    name: 'fallback Froggit 1',
+    image: '/fallback/drawings/cat1.png',
+  },
+  {
+    id: 'fallback-2',
+    name: 'fallback Froggit 2',
+    image: '/fallback/drawings/cat2.png',
+  },
+  {
+    id: 'fallback-3',
+    name: 'fallback Froggit 3',
+    image: '/fallback/drawings/cat3.png',
+  },
+  {
+    id: 'fallback-4',
+    name: 'fallback Froggit 4',
+    image: '/fallback/drawings/cat4.png',
+  },
+]
 </script>
