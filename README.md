@@ -17,6 +17,8 @@ PrimeIcons
 
 Aura
 
+To adjust Vue theme go to presets.ts
+
 ## Planning
 
 Navigation
@@ -27,3 +29,7 @@ Fastapi
 Python
 Supabase
 Renders
+
+## editing reminders
+
+Routing in router.ts

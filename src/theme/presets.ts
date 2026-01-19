@@ -50,6 +50,15 @@ export const MyPreset = definePreset(Aura, {
         },
       },
     },
+    datatable: {
+      colorScheme: {
+        dark: {
+          header: {
+            color: '{primary.400}',
+          },
+        },
+      },
+    },
   },
   css: ({ dt }) => `
   .theme-color {
@@ -71,6 +80,20 @@ export const MyPreset = definePreset(Aura, {
   }
   .animate-spin {
     border-color: ${dt('primary.600')};
+  }
+  .p-datatable {
+  border: 5px solid ${dt('primary.600')};
+  border-radius: 5px;
+  background: ${dt('primary.300')};
+  }
+  .p-datatable .p-datatable-column-sorted {
+    background-color:  #18181b !important;
+  }
+  .p-datatable .p-paginator {
+  border-radius: 0;
+  bottom: 0 !important;
+  position: absolute;
+  width: 100%;
   }
   `,
 })

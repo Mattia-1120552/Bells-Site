@@ -1,3 +1,7 @@
+<template>
+  <div></div>
+</template>
+
 <script setup lang="ts">
 import { updatePrimaryPalette } from '@primeuix/themes'
 import { onMounted, ref } from 'vue'

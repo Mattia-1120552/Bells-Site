@@ -1,5 +1,9 @@
+<script setup lang="ts">
+import SocialViewDatatable from '@/components/SocialView/SocialViewDatatable.vue'
+</script>
+
 <template>
-  <div>
-    <h1>This is a SocialView</h1>
+  <div class="card">
+    <SocialViewDatatable />
   </div>
 </template>

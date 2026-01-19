@@ -8,19 +8,19 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
-      meta: { title: 'O(≧∇≦)O ~ Welcome to my site! ' },
+      meta: { title: 'O(≧∇≦)O ~ Welcome to my site! ', description: 'FROGS' },
     },
     {
       path: '/about',
       name: 'about',
       component: () => import('../views/AboutView.vue'),
-      meta: { title: 'My About page!' },
+      meta: { title: 'My About page!', description: 'FROGS' },
     },
     {
       path: '/social',
       name: 'social',
       component: () => import('../views/SocialView.vue'),
-      meta: { title: 'My Social page!' },
+      meta: { title: 'My Social page!', description: 'FROGS' },
     },
   ],
 })
