@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="card">
     <div v-if="loading" class="flex justify-center items-center h-64 flex-col-reverse gap-10">
       ~Loading froggits~
@@ -88,4 +88,8 @@ const fallbackProducts = [
     image: '/fallback/drawings/cat4.png',
   },
 ]
-</script>
+</script> -->
+
+<template>
+  <div></div>
+</template>
