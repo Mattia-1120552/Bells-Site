@@ -8,16 +8,21 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Auth: typeof import('./src/components/Supabase/Auth.vue')['default']
     Button: typeof import('primevue/button')['default']
     ButtonGroup: typeof import('primevue/buttongroup')['default']
     CardHomeView: typeof import('./src/components/HomeView/CardHomeView.vue')['default']
     Carousel: typeof import('primevue/carousel')['default']
     CarouselHomeView: typeof import('./src/components/HomeView/CarouselHomeView.vue')['default']
+    Checkbox: typeof import('primevue/checkbox')['default']
     ColorWatcher: typeof import('./src/components/Global/ColorWatcher.vue')['default']
     Column: typeof import('primevue/column')['default']
     DataTable: typeof import('primevue/datatable')['default']
     Drawer: typeof import('primevue/drawer')['default']
     GridItemsSideBar: typeof import('./src/components/SideBar/GridItemsSideBar.vue')['default']
+    IconField: typeof import('primevue/iconfield')['default']
+    InputIcon: typeof import('primevue/inputicon')['default']
+    InputText: typeof import('primevue/inputtext')['default']
     MenuNavigationSideBar: typeof import('./src/components/SideBar/MenuNavigationSideBar.vue')['default']
     ProgressSpinner: typeof import('primevue/progressspinner')['default']
     Rating: typeof import('primevue/rating')['default']
@@ -30,9 +35,15 @@ declare module 'vue' {
     SocialViewButtonLadder: typeof import('./src/components/SocialView/SocialViewButtonLadder.vue')['default']
     SocialViewCarousel: typeof import('./src/components/SocialView/SocialViewCarousel.vue')['default']
     SocialViewDatatable: typeof import('./src/components/SocialView/SocialViewDatatable.vue')['default']
+    SupabaseAccount: typeof import('./src/components/Supabase/supabaseAccount.vue')['default']
+    SupabaseAuth: typeof import('./src/components/Supabase/supabaseAuth.vue')['default']
+    SupabaseLogin: typeof import('./src/components/Global/supabaseLogin.vue')['default']
     SVGWavesHeader: typeof import('./src/components/Header/SVGWavesHeader.vue')['default']
     Tag: typeof import('primevue/tag')['default']
     WavesHeader: typeof import('./src/components/Header/WavesHeader.vue')['default']
     WelcomeHeader: typeof import('./src/components/Header/WelcomeHeader.vue')['default']
+  }
+  export interface GlobalDirectives {
+    FocusTrap: typeof import('primevue/focustrap')['default']
   }
 }

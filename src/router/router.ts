@@ -22,6 +22,12 @@ const router = createRouter({
       component: () => import('../views/SocialView.vue'),
       meta: { title: 'My Social page!', description: 'FROGS' },
     },
+    {
+      path: '/Account',
+      name: 'Account',
+      component: () => import('../views/AccountView.vue'),
+      meta: { title: 'My Account page!', description: 'FROGS' },
+    },
   ],
 })
 

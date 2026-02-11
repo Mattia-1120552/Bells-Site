@@ -29,7 +29,6 @@ onMounted(() => {
 <template>
   <div>
     <h1>This is a AboutView</h1>
-    <!-- <Button @onclick="Home">frog button</Button> -->
     <li v-for="frog in frogs" :key="frog.id">{{ frog.title }}, {{ frog.description }}</li>
   </div>
 </template>
