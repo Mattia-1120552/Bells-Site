@@ -7,9 +7,9 @@
     "node": "^20.19.0 || >=22.12.0"
   },
   "scripts": {
-    "dev": "doppler run -- next dev",
-    "build": "doppler run -- next build",
-    "preview": "vite preview",
+    "dev": "doppler run -- vite",
+    "build": "doppler run -- run-p type-check \"build-only {@}\" --",
+    "preview": "doppler run -- vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
