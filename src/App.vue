@@ -6,11 +6,12 @@
       </header>
       <WavesHeader />
 
+      <!-- app page -->
       <div class="p-10 sm:px-[5rem] lg:px-[10rem] w-[100vw] sm:h-[76vh] h-[66vh]">
-        <div class="h-full rounded-xs">
+        <div class="h-full w-full flex justify-center">
           <RouterView v-slot="{ Component }">
+            <!-- View -->
             <Transition name="slide-up" mode="out-in">
-              <!-- Now every routed component can inject session -->
               <component :is="Component" />
             </Transition>
           </RouterView>
@@ -21,7 +22,7 @@
         <Button icon="pi pi-compass" @click="visible = true" />
       </div>
 
-      <Drawer v-model:visible="visible" header="SideBar (つ﹏ <。)">
+      <Drawer v-model:visible="visible" position="right" header="SideBar (つ﹏ <。)">
         <RootSideBar />
         <template #footer>
           <SettingsSideBar />

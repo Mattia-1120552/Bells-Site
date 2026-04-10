@@ -39,7 +39,6 @@ async function getProfile() {
       avatar_url.value = data.avatar_url
     }
   } catch (error) {
-    // Handle unknown error type safely
     if (error instanceof Error) {
       alert(error.message)
     }
@@ -90,40 +89,30 @@ async function signOut() {
 </script>
 
 <template>
-  <form class="form-widget" @submit.prevent="updateProfile">
-    <!-- Email (read-only) -->
-    <div>
-      <label for="email">Email</label>
-      <input id="email" type="text" :value="session?.user?.email" disabled />
-    </div>
+  <div class="card-about p-8 w-150 h-75 flex flex-col gap-6">
+    <form class="form-widget flex flex-col gap-4" @submit.prevent="updateProfile">
 
-    <!-- Username -->
-    <div>
-      <label for="username">Name</label>
-      <input id="username" type="text" v-model="username" />
-    </div>
+      <!-- Email -->
+      <div class="flex flex-col gap-1">
+        <label for="email" class="text-sm opacity-70">Email</label>
+        <input
+          id="email"
+          type="text"
+          :value="session?.user?.email"
+          disabled
+          class="px-3 py-2 rounded-lg border border-white/20 bg-white/10 opacity-60 cursor-not-allowed w-full"
+        />
+      </div>
 
-    <!-- Website -->
-    <div>
-      <label for="website">Website</label>
-      <input id="website" type="url" v-model="website" />
-    </div>
+      <!-- Sign out button -->
+      <div class="pt-2">
+        <button class="button w-full" @click="signOut" :disabled="loading">
+          Sign Out
+        </button>
+      </div>
 
-    <!-- Update button -->
-    <div>
-      <input
-        type="submit"
-        class="button primary block"
-        :value="loading ? 'Loading ...' : 'Update'"
-        :disabled="loading"
-      />
-    </div>
-
-    <!-- Sign out button -->
-    <div>
-      <button class="button block" @click="signOut" :disabled="loading">Sign Out</button>
-    </div>
-  </form>
+    </form>
+  </div>
 </template>
 
 <style scoped>
@@ -140,20 +129,5 @@ input[type='url'] {
   width: 100%;
   padding: 0.5rem;
   box-sizing: border-box;
-}
-
-.button {
-  padding: 0.5rem;
-  cursor: pointer;
-}
-
-.button.primary {
-  background-color: #4f46e5;
-  color: white;
-}
-
-.button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 </style>

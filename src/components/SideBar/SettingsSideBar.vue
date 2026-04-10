@@ -64,23 +64,21 @@ async function signOut() {
 
 <template>
   <div class="flex items-center flex-col">
-    <h2>Settings</h2>
+    <h1>Settings</h1>
 
     <!-- Login / Account toggle -->
-    <h2>
+    <nav class="p-5 flex flex-col items-center">
       <div v-if="!currentSession">
-        <RouterLink to="/account">
-          <div>Login</div>
-        </RouterLink>
+        <RouterLink to="/account">Login</RouterLink>
       </div>
 
-      <div v-else>
-        <RouterLink to="/account">
-          <div>Account</div>
-        </RouterLink>
-        <button class="button block" @click="signOut">Sign Out</button>
+      <div v-else class="flex flex-col items-center gap-5">
+        <RouterLink to="/account">Account</RouterLink>
+        <button class="transition-transform duration-200 hover:scale-110" @click="signOut">
+          Sign out
+        </button>
       </div>
-    </h2>
+    </nav>
 
     <!-- Theme selector -->
     <Select
@@ -89,9 +87,10 @@ async function signOut() {
       option-value="value"
       optionLabel="label"
       placeholder="Select a color"
+      class="w-50"
     />
-    <br />
-    <div class="theme-color">( ◥◣_◢◤ )</div>
+
+    <div class="mt-4 theme-color">( ◥◣_◢◤ )</div>
   </div>
 </template>
 
