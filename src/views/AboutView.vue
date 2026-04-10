@@ -23,17 +23,15 @@
     <div class="flex pb-5">
       <!-- about -->
       <div class="grow flex flex-col card-about rounded-xl p-5">
-        <text>
+        <p style="font-size: clamp(0.7rem, 1.5vw, 1rem)">
           I love watching anime, playing games and painting warhammer. <br />
           Currently I am a software developer student. one more year :c
-          <br />
-          <br />
-          <ul class="border-t pt-3">
-            <li>From: 🇳🇱 Holland and 🇸🇷 Suriname!</li>
-            <li>Age: 19 💕</li>
-            <li>Discord: Belljahh</li>
-          </ul>
-        </text>
+        </p>
+        <ul class="border-t pt-3" style="font-size: clamp(0.7rem, 1.5vw, 1rem)">
+          <li>From: 🇳🇱 Holland and 🇸🇷 Suriname!</li>
+          <li>Age: 19 💕</li>
+          <li>Discord: Belljahh</li>
+        </ul>
       </div>
       <!-- spotify -->
       <div class="grow flex justify-evenly">
