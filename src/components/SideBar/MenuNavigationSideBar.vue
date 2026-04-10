@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 .logo {
   display: block;
   margin: 0 auto 2rem;

@@ -6,7 +6,7 @@
 import { updatePrimaryPalette } from '@primeuix/themes'
 import { onMounted, ref } from 'vue'
 
-const selectedColor = ref(localStorage.getItem('selectedColor') || null)
+const selectedColor = ref(localStorage.getItem('selectedColor') || 'Gray')
 onMounted(() => {
   if (selectedColor.value) {
     switchColor()

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { ref } from 'vue'
 
 const items = ref([
@@ -31,4 +31,4 @@ const items = ref([
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
 }
-</style>
+</style> -->

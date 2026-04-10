@@ -25,10 +25,7 @@ Navigation
 
 ## Backend uses
 
-Fastapi
-Python
 Supabase
-Renders
 
 ## editing reminders
 

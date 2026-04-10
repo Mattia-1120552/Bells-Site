@@ -68,6 +68,9 @@ export const MyPreset = definePreset(Aura, {
   a {
     color: ${dt('primary.500')};
   }
+  button:hover {
+  cursor: pointer;
+  }
   .outerlayerBottomRight {
   background: linear-gradient(-45deg, ${dt('primary.500')} 1%, transparent 7%);
   background-color: rgb(from ${dt('primary.500')} r g b / 0.4);
@@ -95,5 +98,32 @@ export const MyPreset = definePreset(Aura, {
   position: absolute;
   width: 100%;
   }
+  .card-about {
+  background-color: rgb(from ${dt('primary.900')} r g b / 0.4);
+  border-radius: 10px;
+  font-size: medium;
+  }
+  .button {
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--p-primary-500);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--p-primary-600);
+  transform: scale(1.05);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
   `,
 })

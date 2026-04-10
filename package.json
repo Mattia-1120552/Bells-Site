@@ -7,9 +7,9 @@
     "node": "^20.19.0 || >=22.12.0"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "doppler run -- vite",
     "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
+    "preview": "doppler run -- vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@primeuix/themes": "^2.0.3",
+    "@supabase/supabase-js": "^2.95.3",
     "@tailwindcss/postcss": "^4.1.12",
     "@tailwindcss/vite": "^4.1.12",
     "@vue/devtools-kit": "^8.1.1",
