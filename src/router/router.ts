@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
+import { supabase } from '@/lib/supabaseClient'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,7 +9,7 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
-      meta: { title: 'O(≧∇≦)O ~ Welcome to my site! ', description: 'FROGS' },
+      meta: { title: 'O(≧∇≦)O ~ Welcome to my site!', description: 'FROGS' },
     },
     {
       path: '/about',
@@ -17,10 +18,10 @@ const router = createRouter({
       meta: { title: 'My About page!', description: 'FROGS' },
     },
     {
-      path: '/social',
-      name: 'social',
-      component: () => import('../views/SocialView.vue'),
-      meta: { title: 'I DONT KNOW page!', description: 'FROGS' },
+      path: '/list',
+      name: 'list',
+      component: () => import('../views/ListView.vue'),
+      meta: { title: 'List page!', description: 'FROGS', requiresAuth: true },
     },
     {
       path: '/Account',
@@ -29,6 +30,16 @@ const router = createRouter({
       meta: { title: 'My Account page!', description: 'FROGS' },
     },
   ],
+})
+
+// authentication
+router.beforeEach(async (to) => {
+  if (!to.meta.requiresAuth) return true
+
+  const { data } = await supabase.auth.getSession()
+  if (data.session) return true
+  // redirect
+  return { name: 'home' }
 })
 
 export default router

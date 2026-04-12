@@ -1,9 +1,15 @@
+<script setup lang="ts">
+import { useSession } from '@/composables/useSession'
+
+const { isLoggedIn } = useSession()
+</script>
+
 <template>
   <div class="flex flex-col items-center">
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
-      <RouterLink to="/social">Social</RouterLink>
+      <RouterLink to="/list" v-if="isLoggedIn">List</RouterLink>
     </nav>
     (๑✪ᆺ✪๑)
   </div>

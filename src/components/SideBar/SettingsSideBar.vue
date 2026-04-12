@@ -1,16 +1,10 @@
 <script setup lang="ts">
 import { updatePrimaryPalette } from '@primeuix/themes'
-import { ref, watch, computed } from 'vue'
-import { inject, type Ref } from 'vue'
-import type { Session } from '@supabase/supabase-js'
+import { ref, watch } from 'vue'
 import { supabase } from '@/lib/supabaseClient'
+import { useSession } from '@/composables/useSession'
 
-// --- Session injection ---
-const session = inject<Ref<Session | null>>('session')
-if (!session) throw new Error('GlobalLogin provider missing!')
-
-// Computed unwraps the session Ref for template
-const currentSession = computed(() => session.value)
+const { isLoggedIn } = useSession()
 
 // --- Theme color state ---
 const selectedColor = ref(localStorage.getItem('selectedColor') || null)
@@ -48,14 +42,11 @@ watch(selectedColor, (newValue) => {
   switchColor()
 })
 
-// --- ✨ Sign out function ---
+// ---  Sign out function ---
 async function signOut() {
   try {
     const { error } = await supabase.auth.signOut()
     if (error) throw error
-
-    // Non-null assertion since session is guaranteed to exist
-    session!.value = null
   } catch (error) {
     if (error instanceof Error) alert(error.message)
   }
@@ -68,7 +59,7 @@ async function signOut() {
 
     <!-- Login / Account toggle -->
     <nav class="p-5 flex flex-col items-center">
-      <div v-if="!currentSession">
+      <div v-if="!isLoggedIn">
         <RouterLink to="/account">Login</RouterLink>
       </div>
 
