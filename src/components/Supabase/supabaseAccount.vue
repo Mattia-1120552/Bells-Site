@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { supabase } from '@/lib/supabaseClient'
 import { onMounted, ref, toRefs } from 'vue'
+import { useRouter } from 'vue-router'
 import type { Session } from '@supabase/supabase-js'
 
 const props = defineProps<{
@@ -8,6 +9,8 @@ const props = defineProps<{
 }>()
 
 const { session } = toRefs(props)
+
+const router = useRouter()
 
 const loading = ref(true)
 const username = ref('')
@@ -78,6 +81,7 @@ async function signOut() {
     loading.value = true
     const { error } = await supabase.auth.signOut()
     if (error) throw error
+    router.push({ name: 'home' }) // 👈
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message)
@@ -91,7 +95,6 @@ async function signOut() {
 <template>
   <div class="card-about p-8 w-150 h-75 flex flex-col gap-6">
     <form class="form-widget flex flex-col gap-4" @submit.prevent="updateProfile">
-
       <!-- Email -->
       <div class="flex flex-col gap-1">
         <label for="email" class="text-sm opacity-70">Email</label>
@@ -106,11 +109,10 @@ async function signOut() {
 
       <!-- Sign out button -->
       <div class="pt-2">
-        <button class="button w-full" @click="signOut" :disabled="loading">
+        <button type="button" class="button w-full" @click="signOut" :disabled="loading">
           Sign Out
         </button>
       </div>
-
     </form>
   </div>
 </template>
