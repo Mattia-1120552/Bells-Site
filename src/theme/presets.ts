@@ -50,15 +50,6 @@ export const MyPreset = definePreset(Aura, {
         },
       },
     },
-    datatable: {
-      colorScheme: {
-        dark: {
-          header: {
-            color: '{primary.400}',
-          },
-        },
-      },
-    },
   },
   css: ({ dt }) => `
   .theme-color {

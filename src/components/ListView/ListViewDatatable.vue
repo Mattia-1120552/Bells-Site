@@ -1,84 +1,85 @@
 <template>
   <div class="flex flex-row gap-4 justify-center h-[75vh]">
-    <!-- Table Switch Buttons -->
+    <!-- Category Buttons -->
     <div class="flex flex-col gap-2">
       <Button
-        label="Cats"
+        v-for="category in categories"
+        :key="category"
+        :label="category"
         raised
-        :outlined="activeTable !== 'cats'"
-        :disabled="activeTable == 'cats'"
-        @click="activeTable = 'cats'"
-      />
-      <Button
-        raised
-        label="Dogs"
-        :outlined="activeTable !== 'dogs'"
-        :disabled="activeTable == 'dogs'"
-        @click="activeTable = 'dogs'"
-      />
-      <Button
-        raised
-        label="Frogs"
-        :outlined="activeTable !== 'frogs'"
-        :disabled="activeTable == 'frogs'"
-        @click="activeTable = 'frogs'"
+        :outlined="activeTable !== category"
+        :disabled="activeTable === category"
+        @click="activeTable = category"
+        style="width: 8rem"
       />
     </div>
 
-    <div class="w-[50vw] flex">
-      <DataTable
+    <!-- DataView -->
+    <div class="w-[55vw] flex flex-col gap-2">
+      <div class="flex justify-end">
+        <Select
+          v-model="sortOrder"
+          :options="sortOptions"
+          option-label="label"
+          option-value="value"
+          placeholder="Sort by status"
+        />
+      </div>
+
+      <DataView
         :value="products"
-        sortField="sortStatus"
-        :sortOrder="1"
+        :sort-field="'sortStatus'"
+        :sort-order="sortOrder"
         paginator
         :rows="6"
-        scrollable
-        scrollHeight="calc(72vh - 5rem)"
-        class="w-full"
       >
-        <!-- Header -->
-        <template #header>
-          <span class="text-xl font-bold"> {{ products.length }} total items </span>
+        <template #empty>
+          <div class="text-center py-8 opacity-50">No items found.</div>
         </template>
 
-        <!-- Empty -->
-        <template #empty> No items found. </template>
-
-        <!-- Image -->
-        <Column header="Image" style="width: 30%">
-          <template #body="{ data }">
-            <img :src="data.img" class="w-full h-33 object-cover" />
-          </template>
-        </Column>
-
-        <!-- Name -->
-        <Column field="name" header="Name" />
-
-        <!-- Status -->
-        <Column field="sortStatus" header="Status" sortable>
-          <template #body="{ data }">
-            <Tag :value="data.status" :severity="getSeverity(data)" />
-          </template>
-        </Column>
-      </DataTable>
+        <template #list="{ items }">
+          <div class="grid grid-cols-2 gap-4 p-4">
+            <div
+              v-for="item in items"
+              :key="item.id"
+              class="card-about flex flex-col overflow-hidden rounded-lg"
+            >
+              <a :href="item.link" target="_blank" rel="noopener noreferrer" class="block">
+                <img :src="item.img" class="w-full h-40 object-cover" />
+              </a>
+              <div class="flex items-center justify-between px-3 py-2">
+                <span class="font-medium">{{ item.name }}</span>
+                <Tag :value="item.status" :severity="getSeverity(item)" class="capitalize" />
+              </div>
+            </div>
+          </div>
+        </template>
+      </DataView>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { supabase } from '@/lib/supabaseClient'
 
 interface Product {
   id: string
   name: string
   img: string
+  link: string
   status: 'good' | 'potential' | 'bad'
   sortStatus: 1 | 2 | 3
 }
 
-type TableType = 'cats' | 'dogs' | 'frogs'
-
-const activeTable = ref<TableType>('cats')
+interface SupabaseItem {
+  id: string
+  name: string
+  img: string
+  link: string
+  status: Product['status']
+  categories: { name: string }
+}
 
 const statusOrder: Record<Product['status'], Product['sortStatus']> = {
   good: 1,
@@ -97,125 +98,65 @@ const getSeverity = (product: Product) => {
   }
 }
 
-const cats: Product[] = [
-  {
-    id: '1',
-    name: 'Cat 1',
-    img: '/fallback/drawings/cat1.png',
-    status: 'good',
-    sortStatus: statusOrder.good,
-  },
+const sortOrder = ref(1)
+const sortOptions = [
+  { label: 'Good first', value: 1 },
+  { label: 'Bad first', value: -1 },
 ]
 
-const dogs: Product[] = [
-  {
-    id: '2',
-    name: 'Dog 1',
-    img: '/fallback/drawings/cat2.png',
-    status: 'bad',
-    sortStatus: statusOrder.bad,
-  },
-  {
-    id: '2',
-    name: 'Dog 51',
-    img: '/fallback/drawings/cat2.png',
-    status: 'good',
-    sortStatus: statusOrder.good,
-  },
-  {
-    id: '2',
-    name: 'Dog 1',
-    img: '/fallback/drawings/cat2.png',
-    status: 'bad',
-    sortStatus: statusOrder.bad,
-  },
-  {
-    id: '2',
-    name: 'Dog 1',
-    img: '/fallback/drawings/cat2.png',
-    status: 'bad',
-    sortStatus: statusOrder.bad,
-  },
-  {
-    id: '2',
-    name: 'Dog 1',
-    img: '/fallback/drawings/cat2.png',
-    status: 'bad',
-    sortStatus: statusOrder.bad,
-  },
-  {
-    id: '2',
-    name: 'Dog 1',
-    img: '/fallback/drawings/cat2.png',
-    status: 'bad',
-    sortStatus: statusOrder.bad,
-  },
-  {
-    id: '2',
-    name: 'Dog 1',
-    img: '/fallback/drawings/cat2.png',
-    status: 'bad',
-    sortStatus: statusOrder.bad,
-  },
-  {
-    id: '2',
-    name: 'Dog 1',
-    img: '/fallback/drawings/cat2.png',
-    status: 'bad',
-    sortStatus: statusOrder.bad,
-  },
-  {
-    id: '2',
-    name: 'Dog 1',
-    img: '/fallback/drawings/cat2.png',
-    status: 'bad',
-    sortStatus: statusOrder.bad,
-  },
-  {
-    id: '2',
-    name: 'Dog 1',
-    img: '/fallback/drawings/cat2.png',
-    status: 'bad',
-    sortStatus: statusOrder.bad,
-  },
-  {
-    id: '2',
-    name: 'Dog 1',
-    img: '/fallback/drawings/cat2.png',
-    status: 'bad',
-    sortStatus: statusOrder.bad,
-  },
-  {
-    id: '2',
-    name: 'Dog 1',
-    img: '/fallback/drawings/cat2.png',
-    status: 'bad',
-    sortStatus: statusOrder.bad,
-  },
-  {
-    id: '2',
-    name: 'Dog 1',
-    img: '/fallback/drawings/cat2.png',
-    status: 'bad',
-    sortStatus: statusOrder.bad,
-  },
-]
+const categories = ref<string[]>(['loading...'])
+const activeTable = ref<string>('loading...')
+const allItems = ref<Record<string, Product[]>>({ 'loading...': [] })
 
-const frogs: Product[] = [
-  {
-    id: '3',
-    name: 'Frog 1',
-    img: '/fallback/drawings/cat3.png',
-    status: 'potential',
-    sortStatus: statusOrder.potential,
-  },
-]
+onMounted(async () => {
+  setTimeout(() => {
+    if (categories.value[0] === 'loading...') {
+      categories.value = categories.value.filter((c) => c !== 'loading...')
+      delete allItems.value['loading...']
+    }
+  }, 500)
 
-const tables: Record<TableType, Product[]> = {
-  cats,
-  dogs,
-  frogs,
-}
+  const { data: categoryData, error: categoryError } = await supabase
+    .from('categories')
+    .select('name')
 
-const products = computed(() => tables[activeTable.value])
+  if (categoryError) {
+    alert(categoryError.message)
+    return
+  }
+
+  categoryData.forEach((cat) => {
+    categories.value.push(cat.name)
+    allItems.value[cat.name] = []
+  })
+
+  if (categories.value.length > 0) {
+    activeTable.value = categories.value[1] ?? categories.value[0] // 👈 pick index 1, fallback to 0
+  }
+
+  const { data, error } = await supabase
+    .from('items')
+    .select('id, name, img, link, status, categories(name)')
+
+  if (error) {
+    alert(error.message)
+    return
+  }
+
+  ;(data as unknown as SupabaseItem[]).forEach((item) => {
+    const category = item.categories?.name
+    if (!category) return
+
+    allItems.value[category].push({
+      id: item.id,
+      name: item.name,
+      img: item.img,
+      link: item.link,
+      status: item.status,
+      sortStatus: statusOrder[item.status],
+    })
+  })
+})
+
+const products = computed(() => allItems.value[activeTable.value] ?? [])
 </script>
