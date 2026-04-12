@@ -16,7 +16,14 @@
 
     <!-- DataView -->
     <div class="w-[55vw] flex flex-col gap-2">
-      <div class="flex justify-end">
+      <div class="flex justify-between items-center">
+        <IconField>
+          <InputIcon>
+            <i class="pi pi-search" />
+          </InputIcon>
+          <InputText v-model="search" placeholder="Search..." />
+        </IconField>
+
         <Select
           v-model="sortOrder"
           :options="sortOptions"
@@ -44,8 +51,16 @@
               :key="item.id"
               class="card-about flex flex-col overflow-hidden rounded-lg"
             >
-              <a :href="item.link" target="_blank" rel="noopener noreferrer" class="block">
-                <img :src="item.img" class="w-full h-40 object-cover" />
+              <a
+                :href="item.link"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block overflow-hidden"
+              >
+                <img
+                  :src="item.img"
+                  class="w-full h-40 object-cover transition-transform duration-300 hover:scale-105"
+                />
               </a>
               <div class="flex items-center justify-between px-3 py-2">
                 <span class="font-medium">{{ item.name }}</span>
@@ -104,6 +119,8 @@ const sortOptions = [
   { label: 'Bad first', value: -1 },
 ]
 
+const search = ref('')
+
 const categories = ref<string[]>(['loading...'])
 const activeTable = ref<string>('loading...')
 const allItems = ref<Record<string, Product[]>>({ 'loading...': [] })
@@ -131,7 +148,7 @@ onMounted(async () => {
   })
 
   if (categories.value.length > 0) {
-    activeTable.value = categories.value[1] ?? categories.value[0] // 👈 pick index 1, fallback to 0
+    activeTable.value = categories.value[1] ?? categories.value[0]
   }
 
   const { data, error } = await supabase
@@ -158,5 +175,9 @@ onMounted(async () => {
   })
 })
 
-const products = computed(() => allItems.value[activeTable.value] ?? [])
+const products = computed(() => {
+  const items = allItems.value[activeTable.value] ?? []
+  if (!search.value) return items
+  return items.filter((item) => item.name.toLowerCase().includes(search.value.toLowerCase()))
+})
 </script>
