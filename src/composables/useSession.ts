@@ -1,13 +1,11 @@
-import { inject, computed } from 'vue'
-import type { Ref } from 'vue'
-import type { Session } from '@supabase/supabase-js'
+import { useAuthStore } from '@/stores/authStore'
 
 export function useSession() {
-  const session = inject<Ref<Session | null>>('session')
-  if (!session) throw new Error('GlobalLogin provider missing!')
+  const authStore = useAuthStore()
 
   return {
-    session: computed(() => session.value),
-    isLoggedIn: computed(() => session.value !== null),
+    session: authStore.session,
+    isLoggedIn: authStore.isLoggedIn,
+    user: authStore.user,
   }
 }

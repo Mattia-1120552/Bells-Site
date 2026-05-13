@@ -1,23 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { supabase } from '@/lib/supabaseClient'
+import { useAuthStore } from '@/stores/authStore'
 
-const loading = ref(false)
+const authStore = useAuthStore()
 const email = ref('')
 const password = ref('')
 
 const handleLogin = async () => {
   try {
-    loading.value = true
-    const { error } = await supabase.auth.signInWithPassword({
-      email: email.value,
-      password: password.value,
-    })
-    if (error) throw error
+    await authStore.signIn(email.value, password.value)
   } catch (error) {
     if (error instanceof Error) alert(error.message)
-  } finally {
-    loading.value = false
   }
 }
 </script>
@@ -35,7 +28,7 @@ const handleLogin = async () => {
         <InputText required v-model="password" type="password" placeholder="Password" fluid />
       </IconField>
 
-      <Button type="submit" label="Login" class="mt-2" :disabled="loading" />
+      <Button type="submit" label="Login" class="mt-2" :disabled="authStore.loading" />
     </div>
   </form>
 </template>
