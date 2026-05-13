@@ -36,6 +36,8 @@ declare module 'vue' {
     SupabaseLogin: typeof import('./src/components/Global/supabaseLogin.vue')['default']
     SVGWavesHeader: typeof import('./src/components/Header/SVGWavesHeader.vue')['default']
     Tag: typeof import('primevue/tag')['default']
+    Toast: typeof import('primevue/toast')['default']
+    ToastService: typeof import('./src/components/Global/ToastService.vue')['default']
     WavesHeader: typeof import('./src/components/Header/WavesHeader.vue')['default']
     WelcomeHeader: typeof import('./src/components/Header/WelcomeHeader.vue')['default']
   }

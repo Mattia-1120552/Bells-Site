@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import { useToastStore } from './toastStore'
 import { supabase } from '@/lib/supabaseClient'
 import type { Session } from '@supabase/supabase-js'
 
 export const useAuthStore = defineStore('auth', () => {
+  const { showToast } = useToastStore()
   const session = ref<Session | null>(null)
   const loading = ref(false)
 
@@ -15,8 +17,10 @@ export const useAuthStore = defineStore('auth', () => {
     try {
       const { data } = await supabase.auth.getSession()
       session.value = data.session
+      showToast('success', 'Connected', 'Successfully connected to Supabase')
     } catch (error) {
       console.error('Failed to get session:', error)
+      showToast('error', 'Connection Error', 'Failed to connect to Supabase')
     }
 
     // Listen to auth state changes

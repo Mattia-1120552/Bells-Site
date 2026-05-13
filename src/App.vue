@@ -29,6 +29,7 @@
     </Drawer>
 
     <ColorWatcher />
+    <ToastService />
   </div>
 </template>
 
@@ -39,6 +40,7 @@ import WavesHeader from '@/components/Header/WavesHeader.vue'
 import RootSideBar from '@/components/SideBar/RootSideBar.vue'
 import SettingsSideBar from '@/components/SideBar/SettingsSideBar.vue'
 import ColorWatcher from '@/components/Global/ColorWatcher.vue'
+import ToastService from './components/Global/ToastService.vue'
 
 const visible = ref(false)
 </script>
