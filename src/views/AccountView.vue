@@ -3,12 +3,12 @@ import { useSession } from '@/composables/useSession'
 import SupabaseAccount from '@/components/Supabase/supabaseAccount.vue'
 import SupabaseAuth from '@/components/Supabase/supabaseAuth.vue'
 
-const { session, isLoggedIn } = useSession()
+const { isLoggedIn } = useSession()
 </script>
 
 <template>
   <div>
     <SupabaseAuth v-if="!isLoggedIn" />
-    <SupabaseAccount v-else :session="session" />
+    <SupabaseAccount v-else />
   </div>
 </template>
