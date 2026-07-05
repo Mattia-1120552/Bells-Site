@@ -8,7 +8,7 @@ const password = ref('')
 
 const handleLogin = async () => {
   try {
-    await authStore.signIn(email.value, password.value)
+    await authStore.signIn(emai.value, password.value)
   } catch (error) {
     if (error instanceof Error) alert(error.message)
   }
